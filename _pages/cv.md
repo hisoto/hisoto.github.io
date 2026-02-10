@@ -9,56 +9,44 @@ redirect_from:
 
 {% include base_path %}
 
-Education
-======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+# Education
 
-Work experience
-======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+-   Bachelor in economics, El Colegio de México
+    -   Graduated. Advanced courses in economic theory, macroeconomics, microeconomics, econometrics, statistics, and Big Data.
+    -   Economic Analysis Student Seminar (SAE). Founder and first coordinator, involving planning and promotion of academic activities.
+    -   Thesis: International Trade and Labor Standards: The Rapid Response Labor Mechanism in the USMCA. An evaluation of the effect of the Rapid Response Labor Mechanism on labor standards using firm-level data from the manufacturing sector and propensity scores.
+    -   Academic exchange in the University of International Business and Economics (Beijing, China).
 
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+# Work experience
 
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-  
-Skills
-======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+-   Labor Market Analysis Coordinator
+    -   Development of the **Canasta Digna** project: A sub-national estimation of a living wage using data from the Mexican National Survey of Household Income and Expenditures, with the purpose of serving as a reference for minimum wage, collective bargaining agreements, and salary negotiations.
+    -   Research on Monopsonies in the Labor Market: Using administrative data from the Social Security system, I estimated the Herfindahl-Hirschman Index to measure labor market concentration.
+    -   Analysis of current market indicators for the evaluation of public policy, social programs, and the preparation of policy briefs and reports. Specifically, wage negotiations, price variations, poverty lines, social security coverage, and employer registrations.
+    -   Responsible for administrative activities and management of operational staff.
+-   Teaching Assistant at El Colegio de México (Labor Economics)
 
-Publications
-======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Talks
-======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+# Skills
+
+-   Skill 1
+-   Skill 2
+    -   Sub-skill 2.1
+    -   Sub-skill 2.2
+    -   Sub-skill 2.3
+-   Skill 3
+
+# Publications
+
+<ul>{% for post in site.publications reversed %} {% include archive-single-cv.html %} {% endfor %}</ul>
+
+# Talks
+
+<ul>{% for post in site.talks reversed %} {% include archive-single-talk-cv.html %} {% endfor %}</ul>
+
+# Teaching
+
+<ul>{% for post in site.teaching reversed %} {% include archive-single-cv.html %} {% endfor %}</ul>
+
+# Service and leadership
+
+-   Currently signed in to 43 different slack teams

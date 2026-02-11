@@ -8,7 +8,7 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-site_theme               : "default" # The available themes options are "default", "air", "sunrise", "mint", "dirt" and "contrast"
+site_theme               : "contrast" # The available themes options are "default", "air", "sunrise", "mint", "dirt" and "contrast"
 title                    : "Héctor Iván Soto Parra"
 title_separator          : "-"
 name                     : &name "Héctor Iván Soto Parra"
@@ -26,7 +26,7 @@ author:
   avatar           : "profile.png"
   name             : "Iván Soto"
   pronouns         : # example: "she/her"  
-  bio              : "Economist with solid training and professional experience in evidence-based public policy analysis, labor economics, and competition policy, focus on the use of quantitative methods and administrative data to inform decision-making."
+  bio              : "Economist >| Labor >| Public policy"
   location         : "Mexico City, Mexico"
   employer         : "El Colegio de México"
   uri              : # URL

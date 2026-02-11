@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Markdown</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="markdown_files/libs/clipboard/clipboard.min.js"></script>
+<script src="markdown_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="markdown_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="markdown_files/libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="markdown_files/libs/quarto-html/popper.min.js"></script>
+<script src="markdown_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="markdown_files/libs/quarto-html/anchor.min.js"></script>
+<link href="markdown_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="markdown_files/libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="markdown_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="markdown_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="markdown_files/libs/bootstrap/bootstrap-9e3ffae467580fdb927a41352e75a2e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="fullcontent quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Markdown</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>{% include toc %}</p>
+<section id="locations-of-key-filesdirectories" class="level2">
+<h2 class="anchored" data-anchor-id="locations-of-key-filesdirectories">Locations of key files/directories</h2>
+<ul>
+<li>Basic config options: _config.yml</li>
+<li>Top navigation bar config: _data/navigation.yml</li>
+<li>Single pages: _pages/</li>
+<li>Collections of pages are .md or .html files in:
+<ul>
+<li>_publications/</li>
+<li>_portfolio/</li>
+<li>_posts/</li>
+<li>_teaching/</li>
+<li>_talks/</li>
+</ul></li>
+<li>Footer: _includes/footer.html</li>
+<li>Static files (like PDFs): /files/</li>
+<li>Profile image (can set in _config.yml): images/profile.png</li>
+</ul>
+</section>
+<section id="tips-and-hints" class="level2">
+<h2 class="anchored" data-anchor-id="tips-and-hints">Tips and hints</h2>
+<ul>
+<li><p>Name a file “.md” to have it render in markdown, name it “.html” to render in HTML.</p></li>
+<li><p>Go to the <a href="https://github.com/academicpages/academicpages.github.io/commits/master">commit list</a> (on your repo) to find the last version GitHub built with Jekyll.</p>
+<ul>
+<li>Green check: successful build</li>
+<li>Orange circle: building</li>
+<li>Red X: error</li>
+<li>No icon: not built</li>
+</ul></li>
+<li><p>Academic Pages uses <a href="https://jekyllrb.com/docs/configuration/markdown/">Jekyll Kramdown</a>, GitHub Flavored Markdown (GFM) parser, which is similar to the version of Markdown used on GitHub, but may have some minor differences.</p>
+<ul>
+<li>Some of emoji supported on GitHub should be supposed via the <a href="https://github.com/jekyll/jemoji">Jemoji</a> plugin :computer:.</li>
+<li>The best list of the supported emoji can be found in the <a href="https://www.fabriziomusacchio.com/blog/2021-08-16-emojis_for_Jekyll/#computer">Emojis for Jekyll via Jemoji</a> blog post.</li>
+</ul></li>
+<li><p>While GitHub Pages prevents server side code from running, client-side scripts are supported.</p>
+<ul>
+<li>This means that Google Analytics is supported, and <a href="https://github.com/academicpages/academicpages.github.io/wiki/Adding-Google-Analytics">the wiki</a> should contain the most up-to-date information on getting it working.</li>
+</ul></li>
+<li><p>Your CV can be written using either Markdown (<a href="https://academicpages.github.io/cv/">preview</a>) or generated via JSON (<a href="https://academicpages.github.io/cv-json/">preview</a>) and the layouts are slightly different. You can update the path to the one being used in <code>_data/navigation.yml</code> with the JSON formatted CV being hidden by default.</p></li>
+<li><p>The <a href="https://shopify.github.io/liquid/tags/control-flow/">Liquid syntax guide</a> is a useful guide for those that want to add functionality to the template or to become contributors to the <a href="https://github.com/academicpages/academicpages.github.io">template on GitHub</a>.</p></li>
+</ul>
+</section>
+<section id="mathjax" class="level2">
+<h2 class="anchored" data-anchor-id="mathjax">MathJax</h2>
+<p>Support for MathJax (version 3.* via <a href="https://www.jsdelivr.com/">jsDelivr</a>, <a href="https://docs.mathjax.org/en/latest/">documentation</a>) is included in the template:</p>
+<p><span class="math display">\[
+\displaylines{
+\nabla \cdot E= \frac{\rho}{\epsilon_0} \\\
+\nabla \cdot B=0 \\\
+\nabla \times E= -\partial_tB \\\
+\nabla \times B  = \mu_0 \left(J + \varepsilon_0 \partial_t E \right)
+}
+\]</span></p>
+<p>The default delimiters of <code>$$...$$</code> and <code>\\[...\\]</code> are supported for displayed mathematics, while <code>\\(...\\)</code> should be used for in-line mathematics (ex., \(a^2 + b^2 = c^2\))</p>
+<p><strong>Note</strong> that since Academic Pages uses Markdown which cases some interference with MathJax and LaTeX for escaping characters and new lines, although <a href="https://math.codidact.com/posts/278763/278772#answer-278772">some workarounds exist</a>. In some cases, such as when you are including MathJax in a <code>citation</code> field for publications, it may be necessary to use <code>\(...\)</code> for inline delineation.</p>
+</section>
+<section id="mermaid-diagrams" class="level2">
+<h2 class="anchored" data-anchor-id="mermaid-diagrams">Mermaid diagrams</h2>
+<p>Academic Pages includes support for <a href="https://mermaid.js.org/">Mermaid diagrams</a> (version 11.* via <a href="https://www.jsdelivr.com/">jsDelivr</a>) and in addition to their <a href="https://mermaid.js.org/ecosystem/tutorials.html">tutorials</a> and <a href="https://github.com/mermaid-js/mermaid">GitHub documentation</a> the basic syntax is as follows:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="in">    ```mermaid</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="in">    graph LR</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="in">    A--&gt;B</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="in">    ```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Which produces the following plot with the <a href="https://mermaid.js.org/config/theming.html">default theme</a> applied:</p>
+<pre class="mermaid"><code>graph LR
+A--&gt;B</code></pre>
+<p>While a more advanced plot with the <code>forest</code> theme applied looks like the following:</p>
+<pre class="mermaid"><code>---
+config:
+  theme: 'forest'
+---
+graph TD;
+    A--&gt;B;
+    A--&gt;C;
+    B--&gt;D;
+    C--&gt;D;</code></pre>
+</section>
+<section id="plotly" class="level2">
+<h2 class="anchored" data-anchor-id="plotly">Plotly</h2>
+<p>Academic Pages includes support for Plotly diagrams via a hook in the Markdown code elements, although those that are comfortable with HTML and JavaScript can also access it <a href="https://plotly.com/javascript/getting-started/">via those routes</a>. Plotly is included via an <code>npm</code> <a href="https://www.npmjs.com/package/plotly.js?activeTab=readme">package</a> and is distributed as part of the minimized JavaScript that is part of the template.</p>
+<p>In order to render a Plotly plot via Markdown the relevant plot data need to be added as follows:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="in">    ```plotly</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="in">    {</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="in">      "data": [</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="in">        {</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="in">          "x": [1, 2, 3, 4],</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="in">          "y": [10, 15, 13, 17],</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="in">          "type": "scatter"</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="in">        },</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="in">        {</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="in">          "x": [1, 2, 3, 4],</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="in">          "y": [16, 5, 11, 9],</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="in">          "type": "scatter"</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="in">        }</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="in">      ]</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="in">    }</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="in">    ```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Important!</strong> Since the data is parsed as JSON <em>all</em> of the keys will need to be quoted for the plot to render. The use of a tool like <a href="https://jsonlint.com/">JSONLint</a> to check syntax is highly recommended. {: .notice}</p>
+<p>Which produces the following:</p>
+<pre class="plotly"><code>{
+  "data": [
+    {
+      "x": [1, 2, 3, 4],
+      "y": [10, 15, 13, 17],
+      "type": "scatter"
+    },
+    {
+      "x": [1, 2, 3, 4],
+      "y": [16, 5, 11, 9],
+      "type": "scatter"
+    }
+  ]
+}</code></pre>
+<p>Essentially what is taking place is that the <a href="https://plotly.com/javascript/reference/index/">Plotly attributes</a> are being taken from the code block as JSON data, parsed, and passed to Plotly along with a theme that matches the current site theme (i.e., a light theme, or a dark theme). This allows all plots that can be described via the <code>data</code> attribute to rendered with some limitations for the theme of the plot.</p>
+<pre class="plotly"><code>{
+  "data": [
+    {
+      "x": [1, 2, 3, 4, 5],
+      "y": [1, 6, 3, 6, 1],
+      "mode": "markers",
+      "type": "scatter",
+      "name": "Team A",
+      "text": ["A-1", "A-2", "A-3", "A-4", "A-5"],
+      "marker": { "size": 12 }
+    },
+    {
+      "x": [1.5, 2.5, 3.5, 4.5, 5.5],
+      "y": [4, 1, 7, 1, 4],
+      "mode": "markers",
+      "type": "scatter",
+      "name": "Team B",
+      "text": ["B-a", "B-b", "B-c", "B-d", "B-e"],
+      "marker": { "size": 12 }
+    }    
+  ],
+  "layout": {
+    "xaxis": {
+      "range": [ 0.75, 5.25 ]
+    },
+    "yaxis": {
+      "range": [0, 8]
+    },
+    "title": {"text": "Data Labels Hover"}
+  }
+}</code></pre>
+<pre class="plotly"><code>{
+  "data": [{
+      "x": [1, 2, 3],
+      "y": [4, 5, 6],
+      "type": "scatter"
+    },
+    {
+      "x": [20, 30, 40],
+      "y": [50, 60, 70],
+      "xaxis": "x2",
+      "yaxis": "y2",
+      "type": "scatter"
+  }],
+  "layout": {
+    "grid": {
+      "rows": 1,
+      "columns": 2,
+      "pattern": "independent"
+    },
+    "title": {
+      "text": "Simple Subplot"
+    }    
+  }
+}</code></pre>
+<pre class="plotly"><code>{
+  "data": [{
+        "z": [[10, 10.625, 12.5, 15.625, 20],
+          [5.625, 6.25, 8.125, 11.25, 15.625],
+          [2.5, 3.125, 5.0, 8.125, 12.5],
+          [0.625, 1.25, 3.125, 6.25, 10.625],
+          [0, 0.625, 2.5, 5.625, 10]],
+        "type": "contour"
+    }],
+  "layout": {
+    "title": {
+      "text": "Basic Contour Plot"
+    }
+  }
+}</code></pre>
+</section>
+<section id="markdown-guide" class="level2">
+<h2 class="anchored" data-anchor-id="markdown-guide">Markdown guide</h2>
+<p>Academic Pages uses <a href="https://kramdown.gettalong.org/index.html">kramdown</a> for Markdown rendering, which has some differences from other Markdown implementations such as GitHub’s. In addition to this guide, please see the <a href="https://kramdown.gettalong.org/syntax.html">kramdown Syntax page</a> for full documentation.</p>
+<section id="header-three" class="level3">
+<h3 class="anchored" data-anchor-id="header-three">Header three</h3>
+<section id="header-four" class="level4">
+<h4 class="anchored" data-anchor-id="header-four">Header four</h4>
+<section id="header-five" class="level5">
+<h5 class="anchored" data-anchor-id="header-five">Header five</h5>
+<section id="header-six" class="level6">
+<h6 class="anchored" data-anchor-id="header-six">Header six</h6>
+</section>
+</section>
+</section>
+</section>
+</section>
+<section id="blockquotes" class="level2">
+<h2 class="anchored" data-anchor-id="blockquotes">Blockquotes</h2>
+<p>Single line blockquote:</p>
+<blockquote class="blockquote">
+<p>Quotes are cool.</p>
+</blockquote>
+</section>
+<section id="tables" class="level2">
+<h2 class="anchored" data-anchor-id="tables">Tables</h2>
+<section id="table-1" class="level3">
+<h3 class="anchored" data-anchor-id="table-1">Table 1</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Entry</th>
+<th>Item</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="#">John Doe</a></td>
+<td>2016</td>
+<td>Description of the item in the list</td>
+</tr>
+<tr class="even">
+<td><a href="#">Jane Doe</a></td>
+<td>2019</td>
+<td>Description of the item in the list</td>
+</tr>
+<tr class="odd">
+<td><a href="#">Doe Doe</a></td>
+<td>2022</td>
+<td>Description of the item in the list</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="table-2" class="level3">
+<h3 class="anchored" data-anchor-id="table-2">Table 2</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Header1</th>
+<th style="text-align: center;">Header2</th>
+<th style="text-align: right;">Header3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">cell1</td>
+<td style="text-align: center;">cell2</td>
+<td style="text-align: right;">cell3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">cell4</td>
+<td style="text-align: center;">ce</td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ll5</td>
+<td style="text-align: center;">cell6</td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">—————————–</td>
+<td style="text-align: center;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">cell1</td>
+<td style="text-align: center;">cell2</td>
+<td style="text-align: right;">cell3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">cell4</td>
+<td style="text-align: center;">cell5</td>
+<td style="text-align: right;">cell6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">=============================</td>
+<td style="text-align: center;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Foot1</td>
+<td style="text-align: center;">Foot2</td>
+<td style="text-align: right;">Foot3</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="definition-lists" class="level2">
+<h2 class="anchored" data-anchor-id="definition-lists">Definition Lists</h2>
+<dl>
+<dt>Definition List Title</dt>
+<dd>
+Definition list division.
+</dd>
+<dt>Startup</dt>
+<dd>
+A startup company or startup is a company or temporary organization designed to search for a repeatable and scalable business model.
+</dd>
+<dt>#dowork</dt>
+<dd>
+Coined by Rob Dyrdek and his personal body guard Christopher “Big Black” Boykins, “Do Work” works as a self motivator, to motivating your friends.
+</dd>
+<dt>Do It Live</dt>
+<dd>
+I’ll let Bill O’Reilly <a href="https://www.youtube.com/watch?v=O_HyZ5aW76c" title="We'll Do It Live">explain</a> this one.
+</dd>
+</dl>
+</section>
+<section id="unordered-lists-nested" class="level2">
+<h2 class="anchored" data-anchor-id="unordered-lists-nested">Unordered Lists (Nested)</h2>
+<ul>
+<li>List item one
+<ul>
+<li>List item one
+<ul>
+<li>List item one</li>
+<li>List item two</li>
+<li>List item three</li>
+<li>List item four</li>
+</ul></li>
+<li>List item two</li>
+<li>List item three</li>
+<li>List item four</li>
+</ul></li>
+<li>List item two</li>
+<li>List item three</li>
+<li>List item four</li>
+</ul>
+</section>
+<section id="ordered-list-nested" class="level2">
+<h2 class="anchored" data-anchor-id="ordered-list-nested">Ordered List (Nested)</h2>
+<ol type="1">
+<li>List item one
+<ol type="1">
+<li>List item one
+<ol type="1">
+<li>List item one</li>
+<li>List item two</li>
+<li>List item three</li>
+<li>List item four</li>
+</ol></li>
+<li>List item two</li>
+<li>List item three</li>
+<li>List item four</li>
+</ol></li>
+<li>List item two</li>
+<li>List item three</li>
+<li>List item four</li>
+</ol>
+</section>
+<section id="buttons" class="level2">
+<h2 class="anchored" data-anchor-id="buttons">Buttons</h2>
+<p>Make any link standout more when applying the <code>.btn</code> class.</p>
+</section>
+<section id="notices" class="level2">
+<h2 class="anchored" data-anchor-id="notices">Notices</h2>
+<p>Basic notices or call-outs are supported using the following syntax:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>**Watch out!** You can also add notices by appending <span class="in">`{: .notice}`</span> to the line following paragraph.</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>{: .notice}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>which wil render as:</p>
+<p><strong>Watch out!</strong> You can also add notices by appending <code>{: .notice}</code> to the line following paragraph. {: .notice}</p>
+<section id="footnotes" class="level3">
+<h3 class="anchored" data-anchor-id="footnotes">Footnotes</h3>
+<p>Footnotes can be useful for clarifying points in the text, or citing information.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Markdown support numeric footnotes, as well as text as long as the values are unique.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>This is the regular text.<span class="ot">[^1]</span> This is more regular text.<span class="ot">[^note]</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="ot">[^1]: </span>This is the footnote itself.</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="ot">[^note]: </span>This is another footnote.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="html-tags" class="level2">
+<h2 class="anchored" data-anchor-id="html-tags">HTML Tags</h2>
+<section id="address-tag" class="level3">
+<h3 class="anchored" data-anchor-id="address-tag">Address Tag</h3>
+<address>
+1 Infinite Loop<br> Cupertino, CA 95014<br> United States
+</address>
+</section>
+<section id="anchor-tag-aka.-link" class="level3">
+<h3 class="anchored" data-anchor-id="anchor-tag-aka.-link">Anchor Tag (aka. Link)</h3>
+<p>This is an example of a <a href="https://github.com" title="GitHub">link</a>.</p>
+</section>
+<section id="abbreviation-tag" class="level3">
+<h3 class="anchored" data-anchor-id="abbreviation-tag">Abbreviation Tag</h3>
+<p>The abbreviation CSS stands for “Cascading Style Sheets”.</p>
+<p>*[CSS]: Cascading Style Sheets</p>
+</section>
+<section id="cite-tag" class="level3">
+<h3 class="anchored" data-anchor-id="cite-tag">Cite Tag</h3>
+<p>“Code is poetry.” —<cite>Automattic</cite></p>
+</section>
+<section id="code-tag" class="level3">
+<h3 class="anchored" data-anchor-id="code-tag">Code Tag</h3>
+<p>You will learn later on in these tests that <code>word-wrap: break-word;</code> will be your best friend.</p>
+<p>You can also write larger blocks of code with syntax highlighting supported for some languages, such as Python:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Hello World!'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>or R:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Hello World!"</span>, <span class="at">quote =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="details-tag-collapsible-sections" class="level3">
+<h3 class="anchored" data-anchor-id="details-tag-collapsible-sections">Details Tag (collapsible sections)</h3>
+<p>The HTML <code>&lt;details&gt;</code> tag works well with Markdown and allows you to include collapsible sections, see <a href="https://www.w3schools.com/tags/tag_details.asp">W3Schools</a> for more information on how to use the tag.</p>
+<details>
+<summary>
+Collapsed by default
+</summary>
+This section was collapsed by default!
+</details>
+<p>The source code:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">details</span><span class="dt">&gt;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">summary</span><span class="dt">&gt;</span>Collapsed by default<span class="dt">&lt;/</span><span class="kw">summary</span><span class="dt">&gt;</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  This section was collapsed by default!</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">details</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Or, you can leave a section open by default by including the <code>open</code> attribute in the tag:</p>
+<details open="">
+<summary>
+Open by default
+</summary>
+This section is open by default thanks to open in the &lt;details open&gt; tag!
+</details>
+</section>
+<section id="emphasize-tag" class="level3">
+<h3 class="anchored" data-anchor-id="emphasize-tag">Emphasize Tag</h3>
+<p>The emphasize tag should <em>italicize</em> text.</p>
+</section>
+<section id="insert-tag" class="level3">
+<h3 class="anchored" data-anchor-id="insert-tag">Insert Tag</h3>
+<p>This tag should denote <ins>inserted</ins> text.</p>
+</section>
+<section id="keyboard-tag" class="level3">
+<h3 class="anchored" data-anchor-id="keyboard-tag">Keyboard Tag</h3>
+<p>This scarcely known tag emulates <kbd>keyboard text</kbd>, which is usually styled like the <code>&lt;code&gt;</code> tag.</p>
+</section>
+<section id="preformatted-tag" class="level3">
+<h3 class="anchored" data-anchor-id="preformatted-tag">Preformatted Tag</h3>
+<p>This tag styles large blocks of code.</p>
+<pre>.post-title {
+  margin: 0 0 5px;
+  font-weight: bold;
+  font-size: 38px;
+  line-height: 1.2;
+  and here's a line of some really, really, really, really long text, just to see how the PRE tag handles it and to find out how it overflows;
+}
+</pre>
+</section>
+<section id="quote-tag" class="level3">
+<h3 class="anchored" data-anchor-id="quote-tag">Quote Tag</h3>
+<p><q>Developers, developers, developers…</q> –Steve Ballmer</p>
+</section>
+<section id="strike-tag" class="level3">
+<h3 class="anchored" data-anchor-id="strike-tag">Strike Tag</h3>
+<p>This tag will let you <strike>strikeout text</strike>.</p>
+</section>
+<section id="strong-tag" class="level3">
+<h3 class="anchored" data-anchor-id="strong-tag">Strong Tag</h3>
+<p>This tag shows <strong>bold text</strong>.</p>
+</section>
+<section id="subscript-tag" class="level3">
+<h3 class="anchored" data-anchor-id="subscript-tag">Subscript Tag</h3>
+<p>Getting our science styling on with H<sub>2</sub>O, which should push the “2” down.</p>
+</section>
+<section id="superscript-tag" class="level3">
+<h3 class="anchored" data-anchor-id="superscript-tag">Superscript Tag</h3>
+<p>Still sticking with science and Isaac Newton’s E = MC<sup>2</sup>, which should lift the 2 up.</p>
+</section>
+<section id="variable-tag" class="level3">
+<h3 class="anchored" data-anchor-id="variable-tag">Variable Tag</h3>
+<p>This allows you to denote <var>variables</var>.</p>
+<hr>
+<p><strong>Footnotes</strong></p>
+<p>The footnotes in the page will be returned following this line, return to the section on <a href="#footnotes">Markdown Footnotes</a>.</p>
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Such as this footnote.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>When using text for footnotes markers, no spaces are permitted in the name.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

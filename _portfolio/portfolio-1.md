@@ -1,6 +1,6 @@
 ---
 title: "Subnational Living wage estimation for Mexico using survey data"
-excerpt: "Short description of portfolio item number 1<br/><img src='/images/mapa_wage_urbano.png'>"
+excerpt: "A living wage estimation using data from the National Survey of Household Income and Expenditure of 2024 Mexico <br/><img src='/images/mapa_wage_urbano.png'>"
 collection: portfolio
 ---
 

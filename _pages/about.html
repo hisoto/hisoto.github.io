@@ -64,47 +64,12 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Hey! My name is Héctor. I’m an economist from El Colegio de México, currently working as a <a href="https://mx.linkedin.com/in/h%C3%A9ctor-iv%C3%A1n-soto-parra-0386ba337">Labor Market Analysis Coordinator</a> at the <a href="https://www.gob.mx/conasami">National Minimum Wage Commission</a> of Mexico.</p>
-<p>My daily activities involve the analysis of labor market trends, the evaluation of public policies, and the use of quantitative methods to inform the minimum wage setting process.</p>
-<section id="my-research" class="level2">
-<h2 class="anchored" data-anchor-id="my-research">My research</h2>
-</section>
-<section id="a-data-driven-personal-website" class="level1">
-<h1>A data-driven personal website</h1>
-<p>Like many other Jekyll-based GitHub Pages templates, Academic Pages makes you separate the website’s content from its form. The content &amp; metadata of your website are in structured Markdown files, while various other files constitute the theme, specifying how to transform that content &amp; metadata into HTML pages. You keep these various Markdown (.md), YAML (.yml), HTML, and CSS files in a public GitHub repository. Each time you commit and push an update to the repository, the <a href="https://pages.github.com/">GitHub pages</a> service creates static HTML pages based on these files, which are hosted on GitHub’s servers free of charge.</p>
-<p>Many of the features of dynamic content management systems (like Wordpress) can be achieved in this fashion, using a fraction of the computational resources and with far less vulnerability to hacking and DDoSing. You can also modify the theme to your heart’s content without touching the content of your site. If you get to a point where you’ve broken something in Jekyll/HTML/CSS beyond repair, your Markdown files describing your talks, publications, etc. are safe. You can rollback the changes or even delete the repository and start over - just be sure to save the Markdown files! You can also write scripts that process the structured data on the site, such as <a href="https://github.com/academicpages/academicpages.github.io/blob/master/talkmap.ipynb">this one</a> that analyzes metadata in pages about talks to display <a href="https://academicpages.github.io/talkmap.html">a map of every location you’ve given a talk</a>.</p>
-<p>For those users that need more advanced functionality, the template also supports the following popular tools: - <a href="https://www.mathjax.org/">MathJax</a> for mathematical equations - <a href="https://mermaid.js.org/">Mermaid</a> for diagraming - <a href="https://plotly.com/javascript/">Plotly</a> for plotting</p>
-</section>
-<section id="getting-started" class="level1">
-<h1>Getting started</h1>
-<ol type="1">
-<li>Register a GitHub account if you don’t have one and confirm your e-mail (required!)</li>
-<li>Fork <a href="https://github.com/academicpages/academicpages.github.io">this template</a> by clicking the “Use this template” button in the top right.</li>
-<li>Go to the repository’s settings (rightmost item in the tabs that start with “Code”, should be below “Unwatch”). Rename the repository “[your GitHub username].github.io”, which will also be your website’s URL.</li>
-<li>Set site-wide configuration and create content &amp; metadata (see below – also see <a href="https://archive.is/3TPas">this set of diffs</a> showing what files were changed to set up <a href="https://getorg-testacct.github.io">an example site</a> for a user with the username “getorg-testacct”)</li>
-<li>Upload any files (like PDFs, .zip files, etc.) to the files/ directory. They will appear at https://[your GitHub username].github.io/files/example.pdf.<br>
-</li>
-<li>Check status by going to the repository settings, in the “GitHub pages” section</li>
-</ol>
-<section id="site-wide-configuration" class="level2">
-<h2 class="anchored" data-anchor-id="site-wide-configuration">Site-wide configuration</h2>
-<p>The main configuration file for the site is in the base directory in <a href="https://github.com/academicpages/academicpages.github.io/blob/master/_config.yml">_config.yml</a>, which defines the content in the sidebars and other site-wide features. You will need to replace the default variables with ones about yourself and your site’s github repository. The configuration file for the top menu is in <a href="https://github.com/academicpages/academicpages.github.io/blob/master/_data/navigation.yml">_data/navigation.yml</a>. For example, if you don’t have a portfolio or blog posts, you can remove those items from that navigation.yml file to remove them from the header.</p>
-</section>
-<section id="create-content-metadata" class="level2">
-<h2 class="anchored" data-anchor-id="create-content-metadata">Create content &amp; metadata</h2>
-<p>For site content, there is one Markdown file for each type of content, which are stored in directories like _publications, _talks, _posts, _teaching, or _pages. For example, each talk is a Markdown file in the <a href="https://github.com/academicpages/academicpages.github.io/tree/master/_talks">_talks directory</a>. At the top of each Markdown file is structured data in YAML about the talk, which the theme will parse to do lots of cool stuff. The same structured data about a talk is used to generate the list of talks on the <a href="https://academicpages.github.io/talks">Talks page</a>, each <a href="https://academicpages.github.io/talks/2012-03-01-talk-1">individual page</a> for specific talks, the talks section for the <a href="https://academicpages.github.io/cv">CV page</a>, and the <a href="https://academicpages.github.io/talkmap.html">map of places you’ve given a talk</a> (if you run this <a href="https://github.com/academicpages/academicpages.github.io/blob/master/talkmap.py">python file</a> or <a href="https://github.com/academicpages/academicpages.github.io/blob/master/talkmap.ipynb">Jupyter notebook</a>, which creates the HTML for the map based on the contents of the _talks directory).</p>
-<p><strong>Markdown generator</strong></p>
-<p>The repository includes <a href="https://github.com/academicpages/academicpages.github.io/tree/master/markdown_generator">a set of Jupyter notebooks</a> that converts a CSV containing structured data about talks or presentations into individual Markdown files that will be properly formatted for the Academic Pages template. The sample CSVs in that directory are the ones I used to create my own personal website at stuartgeiger.com. My usual workflow is that I keep a spreadsheet of my publications and talks, then run the code in these notebooks to generate the Markdown files, then commit and push them to the GitHub repository.</p>
-</section>
-<section id="how-to-edit-your-sites-github-repository" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-edit-your-sites-github-repository">How to edit your site’s GitHub repository</h2>
-<p>Many people use a git client to create files on their local computer and then push them to GitHub’s servers. If you are not familiar with git, you can directly edit these configuration and Markdown files directly in the github.com interface. Navigate to a file (like <a href="https://github.com/academicpages/academicpages.github.io/blob/master/_talks/2012-03-01-talk-1.md">this one</a> and click the pencil icon in the top right of the content preview (to the right of the “Raw | Blame | History” buttons). You can delete a file by clicking the trashcan icon to the right of the pencil icon. You can also create new files or upload files by navigating to a directory and clicking the “Create new file” or “Upload files” buttons.</p>
-<p>Example: editing a Markdown file for a talk <img src=".\images/editing-talk.png" class="img-fluid" alt="Editing a Markdown file for a talk"></p>
-</section>
-<section id="for-more-info" class="level2">
-<h2 class="anchored" data-anchor-id="for-more-info">For more info</h2>
-<p>More info about configuring Academic Pages can be found in <a href="https://academicpages.github.io/markdown/">the guide</a>, the <a href="https://github.com/academicpages/academicpages.github.io/wiki">growing wiki</a>, and you can always <a href="https://github.com/academicpages/academicpages.github.io/discussions">ask a question on GitHub</a>. The <a href="https://mmistakes.github.io/minimal-mistakes/docs/configuration/">guides for the Minimal Mistakes theme</a> (which this theme was forked from) might also be helpful.</p>
-</section>
+<p>Hey! I’m Héctor, an economist from <a href="https://www.colmex.mx/">El Colegio de México</a>, currently working as a <a href="https://mx.linkedin.com/in/h%C3%A9ctor-iv%C3%A1n-soto-parra-0386ba337">Labor Market Analysis Coordinator</a> at the <a href="https://www.gob.mx/conasami">National Minimum Wage Commission</a> of Mexico. I’m very passionate about economics in general, particularly in labor and industrial economics with a focus on policy, as well as inferential statistics. I’m a huge nerd!!</p>
+<p>I’m from Cuernavaca, a small city in the center of Mexico, but I’m currently living in Mexico City.</p>
+<section id="my-work-and-research" class="level2">
+<h2 class="anchored" data-anchor-id="my-work-and-research">My work and research</h2>
+<p>My daily activities involve the analysis of labor market trends, the evaluation of public policies, and the use of quantitative methods to inform the minimum wage setting process. Particularly, I study <a href="https://github.com/hisoto/comportamiento_precios">price dynamics</a>, salary negotiations and poverty lines.</p>
+<p>My main project right now is the <a href="https://github.com/hisoto/Living-wage-mexico"><em>Canasta digna</em></a>, a national and subnational living wage estimation for Mexico that is going to serve (it already did) as a reference for the minimum wage, salary and contractual negotiations in the country. This work is also being used, in collaboration with the Executive Secretariat of the National Public Security System, to design a <a href="https://gabinetedeseguridad.gob.mx/contenido/4664/la-sspc-y-la-comision-nacional-de-los-salarios-minimos-desarrollaran-investigaciones-que-permitan-establecer-un-salario-digno-para-policias">state-level framework</a> that helps governments strengthen labor standards and compensation structures for police forces.</p>
 </section>
 
 </main>
